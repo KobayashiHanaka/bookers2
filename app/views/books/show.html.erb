@@ -1,0 +1,50 @@
+
+
+<div class="container">
+  <div class="row">
+
+      <div class="col-md-3">
+
+        <%= render 'users/detail' , user: @user %>
+
+        <%= render 'users/form' , book: @book %>
+
+      </div>
+
+
+      <div class="col-md-8 offset-md-1">
+        <h2>Book detail</h2>
+        <table class="table">
+
+            <tbody>
+              <tr>
+                  <td><%= link_to user_path(@user.id) do %>
+                      <%= image_tag @user.get_profile_image(100,100) %>
+                      <%= @user.name %>
+                      <% end %>
+                      </td>
+
+                <td><%= link_to book_path(@book2.id) do %>
+                    <%= @book2.title %>
+                    <% end %>
+                </td>
+                <td><%= @book2.body %></td>
+                <% if @user == current_user %>
+                  <td><%= link_to "Edit" , edit_book_path(@book2.id) %></td>
+                  <td><%= link_to "Destroy" , book_path(@book2.id) , method: :delete %></td>
+                <% end %>
+              </tr>
+            </tbody>
+
+      　</table>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
